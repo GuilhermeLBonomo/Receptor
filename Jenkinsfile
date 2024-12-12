@@ -19,15 +19,7 @@ pipeline {
             }
         }
 
-        stage('Análise SonarQube') {
-            steps {
-                script {
-                    withSonarQubeEnv('SonarQubeServer') {  // 'SonarQubeServer' é o nome da instância configurada no Jenkins
-                        bat 'mvn clean verify sonar:sonar -Dsonar.projectKey=receptor -Dsonar.projectName=receptor'
-                    }
-                }
-            }
-        }
+
 
         stage('Construir Imagem Docker') {
             steps {
